@@ -1,0 +1,20 @@
+[
+    {
+        "first_name":"Paco",
+        "last_name":"Ruiz",
+        "username":"PacoRuiz",
+        "email":"paco@paco.es"
+    },
+    {
+        "first_name":"Pepe",
+        "last_name":"Sanchez",
+        "username":"PepeSanchez",
+        "email":"pepe@pepe.es"
+    },
+    {
+        "first_name":"lolo",
+        "last_name":"Garcia",
+        "username":"LoloGarcia",
+        "email":"lolo@lolo.es"
+    }
+]

@@ -1,0 +1,91 @@
+{
+  "name": "massimo-dutti",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve ",
+    "build": "ng build",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~11.0.9",
+    "@angular/common": "~11.0.9",
+    "@angular/compiler": "~11.0.9",
+    "@angular/core": "~11.0.9",
+    "@angular/forms": "~11.0.9",
+    "@angular/platform-browser": "~11.0.9",
+    "@angular/platform-browser-dynamic": "~11.0.9",
+    "@angular/router": "~11.0.9",
+    "@popperjs/core": "^2.4.4",
+    "bootstrap": "^4.5.0",
+    "jest-marbles": "^2.5.1",
+    "jquery": "^3.5.1",
+    "ngx-pagination": "^5.0.0",
+    "rxjs": "~6.5.4",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1100.7",
+    "@angular/cli": "~11.0.7",
+    "@angular/compiler-cli": "~11.0.9",
+    "@angular/language-service": "~11.0.9",
+    "@types/jasmine": "~3.6.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.3",
+    "jest-preset-angular": "^8.3.2",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.0.5"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "./src/app/**/*.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 12,
+        "statements": 12
+      }
+    },
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupJest.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/",
+      "<rootDir>/src/app/checkout/",
+      "<rootDir>/src/test.ts"
+    ],
+    "moduleNameMapper": {
+      "^@environments(.*)": "<rootDir>/src/environments$1",
+      "^@env/environment": "<rootDir>/src/environments/environment",
+      "^@api(.*)": "<rootDir>/src/app/idt-ecommerce-api$1",
+      "^idt-ecommerce-api(.*)": "<rootDir>/src/app/idt-ecommerce-api$1",
+      "^common(.*)": "<rootDir>/src/app/common$1"
+    },
+    "globals": {
+      "inditex": true,
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    }
+  }
+}

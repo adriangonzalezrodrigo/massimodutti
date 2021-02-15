@@ -1,0 +1,56 @@
+.form-control {
+    border: none !important;
+}
+
+.hr-line {
+    margin-top: 0px;
+}
+.form {
+    width: 75%;
+    margin: 0 auto;
+    &__required {
+        margin-top: -12px;
+        font-size: small;
+    }
+}
+
+.buttons {
+    display: grid;
+    margin: 0 auto;
+    margin-top: 30px;
+    &__login {
+        color: #fff;
+        background-color: #b99d6b;
+        border-color: #b99d6b;
+    }
+    
+    &__register {
+        color: #fff;
+        background-color: black;
+        border-color: black;
+    }
+
+    &__span {
+        font-family: "BasisGrotesque-Regular-Pro";
+        font-weight: inherit;
+        color: black;
+        line-height: 16px;
+        font-size: 16px;
+    }
+
+    &__link {
+        background: transparent;
+        padding: 8px 0;
+        margin: 26px 8px 30px 20px;
+        position: relative;
+        display: inline-block;
+        border: 0;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        font-weight: 400;
+        font-size: 14px;
+        color: black;
+    }
+
+}

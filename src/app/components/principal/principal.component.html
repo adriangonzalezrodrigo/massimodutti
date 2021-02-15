@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark principalHeader">
+    <div class="dropdown">
+        <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown"></i>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" [routerLink]="'ships'">Ships</a>
+            <a class="dropdown-item" [routerLink]="'pageOne'">Page One</a>
+            <a class="dropdown-item" [routerLink]="'pageTwo'">Page Two</a>
+            <a class="dropdown-item" [routerLink]="''">Login</a>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
