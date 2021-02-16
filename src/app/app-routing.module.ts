@@ -1,21 +1,31 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { APP_ROUTES } from '@shared/constants';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import(`./modules/login/login.module`).then((m) => m.LoginModule),
-  },
-  { path: 'register',
-  loadChildren: () => import(`./modules/register/register.module`).then((m) => m.RegisterModule), },
-  {
-    path: 'principal',
-    loadChildren: () => import(`./modules/principal/principal.module`).then((m) => m.PrincipalModule),
+    path: APP_ROUTES.ROOT.path,
+    loadChildren: () =>
+      import(`./modules/login/login.module`).then((m) => m.LoginModule),
   },
   {
-    path: '**',
-    redirectTo: '' // TODO: Replace with Page Not Found
-  }
+    path: APP_ROUTES.REGISTER.path,
+    loadChildren: () =>
+      import(`./modules/register/register.module`).then(
+        (m) => m.RegisterModule
+      ),
+  },
+  {
+    path: APP_ROUTES.PRINCIPAL.path,
+    loadChildren: () =>
+      import(`./modules/principal/principal.module`).then(
+        (m) => m.PrincipalModule
+      ),
+  },
+  {
+    path: APP_ROUTES.WILDCARD.path,
+    redirectTo: '', // TODO: Replace with Page Not Found
+  },
 ];
 
 @NgModule({
