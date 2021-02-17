@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { APP_ROUTES } from '@shared/constants';
+import { AuthGuard } from '@shared/guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       import(`./modules/principal/principal.module`).then(
         (m) => m.PrincipalModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: APP_ROUTES.WILDCARD.path,
