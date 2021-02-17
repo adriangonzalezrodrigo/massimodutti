@@ -51,7 +51,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .pipe(finalize(() => (this.dataLoading = false)))
       .subscribe((response) => {
         if (response) {
-          this.router.navigate([`${APP_ROUTES.LOGIN.path}`]);
+          this.router.navigate([
+            `${APP_ROUTES.PRINCIPAL.path}/${APP_ROUTES.SHIPS.path}`,
+          ]);
         }
       });
   }

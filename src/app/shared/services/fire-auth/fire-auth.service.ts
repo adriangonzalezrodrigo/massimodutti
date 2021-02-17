@@ -16,7 +16,7 @@ export class FireAuthService {
 
   public get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null && user.emailVerified !== false;
+    return user !== null;
   }
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
@@ -73,14 +73,13 @@ export class FireAuthService {
   }
 
   private setUserData(user: firebase.User): Promise<void> {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
     const userState: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
     return userRef.set(userState, {
