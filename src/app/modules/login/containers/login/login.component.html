@@ -4,14 +4,14 @@
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
         <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
             <input
-                type="text"
+                type="email"
                 class="form-control"
-                placeholder="Username"
-                formControlName="username"/>
+                placeholder="Email"
+                formControlName="email"/>
                 <hr class="hr-line">
-            <div class="input-group-append form__required" *ngIf="loginForm.get('username').invalid">
+            <div class="input-group-append form__required" *ngIf="loginForm.get('email').invalid">
                 <span class="colorInvalid">
-                    <i>Username is required</i>
+                    <i>Email is required</i>
                 </span>
             </div>
         </div>
