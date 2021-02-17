@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .pipe(finalize(() => (this.dataLoading = false)))
       .subscribe((response) => {
-        console.log(response);
         if (response) {
           this.router.navigate([
             `${APP_ROUTES.PRINCIPAL.path}/${APP_ROUTES.SHIPS.path}`,

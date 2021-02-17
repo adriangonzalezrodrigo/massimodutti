@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .pipe(finalize(() => (this.dataLoading = false)))
       .subscribe((response) => {
-        console.log(response);
         if (response) {
           this.router.navigate([`${APP_ROUTES.LOGIN.path}`]);
         }
