@@ -3,29 +3,29 @@
     <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
         <div class="form-group mt-5">
             <!-- <label for="username">First name</label> -->
-            <input 
+            <input
                 type="text"
-                name="first_name"
+                name="firstName"
                 class="form-control"
                 placeholder="First Name"
-                formControlName="first_name"/>
+                formControlName="firstName"/>
                 <hr class="hr-line">
-                <div class="input-group-append form__required" *ngIf="registerForm.get('first_name').invalid">
+                <div class="input-group-append form__required" *ngIf="registerForm.get('firstName').invalid">
                     <span class="colorInvalid">
                         <i>FirstName is required</i>
                     </span>
-                </div>  
+                </div>
         </div>
         <div class="form-group mt-5" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
             <!-- <label for="username">Last name</label> -->
             <input
                 type="text"
-                name="last_name"
+                name="lastName"
                 class="form-control"
                 placeholder="Last Name"
-                formControlName="last_name"/>
+                formControlName="lastName"/>
                 <hr class="hr-line">
-                <div class="input-group-append form__required" *ngIf="registerForm.get('last_name').invalid">
+                <div class="input-group-append form__required" *ngIf="registerForm.get('lastName').invalid">
                     <span class="colorInvalid">
                         <i>LastName is required</i>
                     </span>
@@ -46,7 +46,7 @@
                     </span>
                 </div>
         </div>
-        <div class="form-group mt-5" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+        <div class="form-group mt-5" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
             <!-- <label for="password">Password</label> -->
             <input
                 type="email"
@@ -60,6 +60,21 @@
                         <i>Email is required</i>
                     </span>
                 </div>
+        </div>
+        <div class="form-group mt-5" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+          <!-- <label for="password">Password</label> -->
+          <input
+              type="password"
+              name="password"
+              class="form-control"
+              placeholder="password"
+              formControlName="password" />
+              <hr class="hr-line">
+              <div class="input-group-append form__required" *ngIf="registerForm.get('password').invalid">
+                  <span class="colorInvalid">
+                      <i>Password is required</i>
+                  </span>
+              </div>
         </div>
         <div class="buttons">
             <button type="submit" [disabled]="registerForm.invalid" class="btn buttons__login">Register</button>
