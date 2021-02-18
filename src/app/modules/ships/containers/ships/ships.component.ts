@@ -1,21 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import { ShipsService } from 'src/app/services/ships.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ShipsAPIResponse } from '../../../../services/models/ships-api-response.model';
+import { ShipsParams } from '../../../../services/models/ships-params.model';
+import * as fromRoot from '../../../../store';
+import * as shipsActions from '../../../../store/actions/ships.actions';
+import { ShipsState } from '../../../../store/reducers/ships.reducer';
+
+const FIRST_PAGE = 1;
 
 @Component({
   selector: 'app-ships',
   templateUrl: './ships.component.html',
-  styleUrls: ['./ships.component.scss']
+  styleUrls: ['./ships.component.scss'],
 })
-export class ShipsComponent implements OnInit {
+export class ShipsComponent implements OnInit, OnDestroy {
+  public dataList: ShipsAPIResponse = null;
 
-  public dataList: any = [];
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor( private shipsService: ShipsService) {}
+  constructor(private readonly store: Store) {}
 
   ngOnInit(): void {
-    this.shipsService.getShips().subscribe((ships) => {
-      this.dataList = ships;
-      console.log('SHIPS -->', this.dataList.results)
-    })
+    this.store
+      .select(fromRoot.getShips)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: ShipsState) => {
+        this.dataList = data.ships;
+      });
+
+    this.fetchData();
+  }
+
+  public ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  public fetchData(page = FIRST_PAGE): void {
+    const shipsParams: ShipsParams = {
+      page,
+    };
+    this.store.dispatch(shipsActions.getShips(shipsParams));
   }
 }
