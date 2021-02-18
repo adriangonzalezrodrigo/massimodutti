@@ -1,4 +1,4 @@
-import { Ship } from '../../shared/models/ships/ship.model';
+import { Ship } from '../../../models/ships/ship.model';
 
 export interface ShipsAPIResponse {
   count: number;

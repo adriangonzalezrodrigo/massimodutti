@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { ShipsAPIResponse } from '../../services/models/ships-api-response.model';
+import { ShipsAPIResponse } from '../../shared/services/ships/models/ships-api-response.model';
 import * as shipsActions from '../actions/ships.actions';
 import * as storage from '../state/storage';
 

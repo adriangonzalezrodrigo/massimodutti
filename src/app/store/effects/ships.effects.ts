@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
-import { ShipsAPIResponse } from '../../services/models/ships-api-response.model';
-import { ShipsParams } from '../../services/models/ships-params.model';
-import { ShipsService } from '../../services/ships.service';
+import { ShipsService } from '../../shared/';
+import { ShipsAPIResponse } from '../../shared/services/ships/models/ships-api-response.model';
+import { ShipsParams } from '../../shared/services/ships/models/ships-params.model';
 import * as shipsActions from '../actions/ships.actions';
 
 @Injectable()

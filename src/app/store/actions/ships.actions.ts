@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ShipsParams } from '../../services/models/ships-params.model';
+import { ShipsParams } from '../../shared/services/ships/models/ships-params.model';
 
 export const GET_SHIPS = '[Ships] Get Ships';
 export const GET_SHIPS_SUCCESS = '[Ship] Get Ships Success';

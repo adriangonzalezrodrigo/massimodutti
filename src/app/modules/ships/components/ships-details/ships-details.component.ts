@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ShipsAPIResponse } from '../../../../services/models/ships-api-response.model';
+import { ShipsAPIResponse } from '../../../../shared/services/ships/models/ships-api-response.model';
 import { Ship } from '../../../../shared/models/ships/ship.model';
 declare var $: any;
 
