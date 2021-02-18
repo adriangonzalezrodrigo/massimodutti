@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ShipsDetailsComponent } from './ships-details.component';
+import { ShipsDetailsComponent } from '../ships-details.component';
 import { PaginationControlsComponent } from 'ngx-pagination';
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
@@ -11,29 +11,30 @@ describe('ShipsDetailsComponent', () => {
 
   @Component({
     selector: 'pagination-controls',
-    template: '<p>Mock Pagination controls Component</p>'
+    template: '<p>Mock Pagination controls Component</p>',
   })
   class MockPaginationControls {}
-  @Pipe({name: 'paginate'})
+  @Pipe({ name: 'paginate' })
   class MockPipe implements PipeTransform {
-      transform(value: number): number {
-          //Do stuff here, if you want
-          return value;
-      }
+    transform(value: number): number {
+      //Do stuff here, if you want
+      return value;
+    }
   }
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      declarations: [ ShipsDetailsComponent, MockPaginationControls, MockPipe ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [HttpClientModule],
+        declarations: [ShipsDetailsComponent, MockPaginationControls, MockPipe],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ShipsDetailsComponent);
     component = fixture.componentInstance;
-    component.dataList = {};
+    component.dataList = null;
     fixture.detectChanges();
   });
 
