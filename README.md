@@ -34,5 +34,15 @@ Navigate to `http://localhost:4200/`.
 
 
 # Notas del desarrollador:
+La aplicación está estructurada en tres partes: 
+1. modules: haría referencia a secciones/pantalla de la aplicación para dividir la lógica de la misma. Puede contener tamibén módulos comúnes (commons) que se requieran en varias partes de la aplicación y que se carguen de manera lazy a medida que se necesiten. Todos los módulos están en lazy load, quizás podría cargarse directamente el login ya que primero se entraría por él.
+2. shared: haría referencia a todo lo compartido por la aplicación a nivel global, aquí añadiría los componentes para el shell de la aplicación, servicios, modelos, utilidades, etc...
+3. store: control del estado de la aplicación
 
+En la aplicación, como es lógico, faltan muchas partes, interceptores, configuración de precommits, pushs con husky, etc...
 
+Para el login y registro he usado Firebase, aunque pida introducir nombre y usuario, lo realmente necesario es el email y la password. No he comprobado que se tenga el email verificado porque para el caso de uso que es no lo considero necesario. La configuración para firebase hay que introducirla en el fichero de environment.
+
+En cuanto a las mejoras en caso de tener un gran número simultáneo de usuarios, lo que haría sería tener desplegados las aplicaciones en sistemas que puedan escalar. Sobretodo a nivel de backend para intentar evitar todo tipo de cuellos de botella como los relaciones con las consultas a la bbdd, peticiones que admita el servidor, etc...
+
+La aplicación está desplegada en https://massimoduttitest2021.netlify.app
